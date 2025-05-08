@@ -145,8 +145,8 @@
 <svelte:head>
 	<title>
 		{title
-			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} • ${$WEBUI_NAME}`
-			: `${$WEBUI_NAME}`}
+			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} • ${$i18n.t('政务大模型')}`
+			: `${$i18n.t('政务大模型')}`}
 	</title>
 </svelte:head>
 

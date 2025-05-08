@@ -72,7 +72,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Knowledge')} • {$WEBUI_NAME}
+		{$i18n.t('Knowledge')} • {$i18n.t('政务大模型')}
 	</title>
 </svelte:head>
 

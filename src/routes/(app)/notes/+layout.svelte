@@ -27,7 +27,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Notes')} • {$WEBUI_NAME}
+		{$i18n.t('Notes')} • {$i18n.t('政务大模型')}
 	</title>
 </svelte:head>
 

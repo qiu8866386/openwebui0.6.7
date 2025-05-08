@@ -137,13 +137,13 @@
 	on:confirm={() => {
 		onUpdateRole(selectedUser);
 	}}
-	message={$i18n.t(`Are you sure you want to update this user\'s role to **{{ROLE}}**?`, {
+	message={$i18n.t(`您确定将当前用户的角色设置为 **{{ROLE}}**?`, {
 		ROLE:
 			selectedUser?.role === 'user'
-				? 'admin'
+				? '管理员'
 				: selectedUser?.role === 'pending'
-					? 'user'
-					: 'pending'
+					? '用户'
+					: '待激活'
 	})}
 />
 
@@ -307,7 +307,7 @@
 					on:click={() => setSortKey('email')}
 				>
 					<div class="flex gap-1.5 items-center">
-						{$i18n.t('Email')}
+						{$i18n.t('Phone')}
 
 						{#if orderBy === 'email'}
 							<span class="font-normal"
@@ -533,7 +533,7 @@
 >
 > It looks like you have over 50 users — that usually falls under organizational usage.
 > 
-> Open WebUI is proudly open source and completely free, with no hidden limits — and we'd love to keep it that way. 🌱  
+> 政务大模型 is proudly open source and completely free, with no hidden limits — and we'd love to keep it that way. 🌱  
 >
 > By supporting the project through sponsorship or an enterprise license, you’re not only helping us stay independent, you’re also helping us ship new features faster, improve stability, and grow the project for the long haul. With an *enterprise license*, you also get additional perks like dedicated support, customization options, and more — all at a fraction of what it would cost to build and maintain internally.  
 > 

@@ -125,15 +125,15 @@
 						</div>
 					</div>
 
-					<div class="my-1.5">
+					<!-- <div class="my-1.5">
 						<div class="text-xs text-gray-500">
 							{$i18n.t('Connect to your own OpenAI compatible API endpoints.')}
 							<br />
 							{$i18n.t(
-								'CORS must be properly configured by the provider to allow requests from Open WebUI.'
+								'CORS must be properly configured by the provider to allow requests from 政务大模型.'
 							)}
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		{:else}

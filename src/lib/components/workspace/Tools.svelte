@@ -65,7 +65,7 @@
 			return null;
 		});
 
-		toast.success($i18n.t('Redirecting you to Open WebUI Community'));
+		toast.success($i18n.t('Redirecting you to 政务大模型 Community'));
 
 		const url = 'https://openwebui.com';
 
@@ -164,7 +164,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Tools')} • {$WEBUI_NAME}
+		{$i18n.t('Tools')} • {$i18n.t('政务大模型')}
 	</title>
 </svelte:head>
 
@@ -433,10 +433,10 @@
 		</div>
 	{/if}
 
-	{#if $config?.features.enable_community_sharing}
+	<!-- {#if $config?.features.enable_community_sharing}
 		<div class=" my-16">
 			<div class=" text-xl font-medium mb-1 line-clamp-1">
-				{$i18n.t('Made by Open WebUI Community')}
+				{$i18n.t('Made by 政务大模型 Community')}
 			</div>
 
 			<a
@@ -458,7 +458,7 @@
 				</div>
 			</a>
 		</div>
-	{/if}
+	{/if} -->
 
 	<DeleteConfirmDialog
 		bind:show={showDeleteConfirm}

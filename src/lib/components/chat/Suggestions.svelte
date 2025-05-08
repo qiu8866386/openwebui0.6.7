@@ -71,13 +71,13 @@
 	{:else}
 		<!-- Keine Vorschläge -->
 
-		<div
+		<!-- <div
 			class="flex w-full {$settings?.landingPageMode === 'chat'
 				? ' -mt-1'
 				: 'text-center items-center justify-center'}  self-start text-gray-400 dark:text-gray-600"
 		>
-			{$WEBUI_NAME} ‧ v{WEBUI_VERSION}
-		</div>
+			{$i18n.t('政务大模型')} ‧ v{WEBUI_VERSION}
+		</div> -->
 	{/if}
 </div>
 

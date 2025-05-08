@@ -96,12 +96,12 @@
 					<div class=" px-5 pt-3 pb-5">
 						<div class=" flex flex-col space-y-1.5">
 							<div class="flex flex-col w-full">
-								<div class=" mb-1 text-xs text-gray-500">{$i18n.t('Email')}</div>
+								<div class=" mb-1 text-xs text-gray-500">{$i18n.t('Phone')}</div>
 
 								<div class="flex-1">
 									<input
 										class="w-full rounded-sm text-sm bg-transparent disabled:text-gray-500 dark:disabled:text-gray-500 outline-hidden"
-										type="email"
+										type="text"
 										bind:value={_user.email}
 										placeholder={$i18n.t('Enter Your Email')}
 										autocomplete="off"

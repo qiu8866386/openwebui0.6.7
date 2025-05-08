@@ -1931,8 +1931,8 @@
 <svelte:head>
 	<title>
 		{$chatTitle
-			? `${$chatTitle.length > 30 ? `${$chatTitle.slice(0, 30)}...` : $chatTitle} • ${$WEBUI_NAME}`
-			: `${$WEBUI_NAME}`}
+			? `${$chatTitle.length > 30 ? `${$chatTitle.slice(0, 30)}...` : $chatTitle} • ${$i18n.t('政务大模型')}`
+			: `${$i18n.t('政务大模型')}`}
 	</title>
 </svelte:head>
 

@@ -105,9 +105,9 @@ for source in log_sources:
 
 log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
-WEBUI_NAME = os.environ.get("WEBUI_NAME", "Open WebUI")
-if WEBUI_NAME != "Open WebUI":
-    WEBUI_NAME += " (Open WebUI)"
+WEBUI_NAME = os.environ.get("WEBUI_NAME", "政务大模型")
+if WEBUI_NAME != "政务大模型":
+    WEBUI_NAME += " (政务大模型)"
 
 WEBUI_FAVICON_URL = "https://openwebui.com/favicon.png"
 
@@ -262,15 +262,37 @@ if os.path.exists(f"{DATA_DIR}/ollama.db"):
 else:
     pass
 
-DATABASE_URL = os.environ.get("DATABASE_URL", f"sqlite:///{DATA_DIR}/webui.db")
+# DATABASE_URL = os.environ.get("DATABASE_URL", f"sqlite:///{DATA_DIR}/webui.db")
 
-# Replace the postgres:// with postgresql://
-if "postgres://" in DATABASE_URL:
+# # Replace the postgres:// with postgresql://
+# if "postgres://" in DATABASE_URL:
+#     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://")
+
+# DATABASE_SCHEMA = os.environ.get("DATABASE_SCHEMA", None)
+
+# DATABASE_POOL_SIZE = os.environ.get("DATABASE_POOL_SIZE", 0)
+DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:123456@192.168.1.100:5432/openwebui")
+# 兼容旧格式：把 `postgres://` 替换成 `postgresql://`
+if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://")
+log.info(f"Using database: {DATABASE_URL}")
 
-DATABASE_SCHEMA = os.environ.get("DATABASE_SCHEMA", None)
+# 数据库 Schema（可选）
+DATABASE_SCHEMA = os.environ.get("DATABASE_SCHEMA", "public")
 
-DATABASE_POOL_SIZE = os.environ.get("DATABASE_POOL_SIZE", 0)
+# 连接池配置
+def get_env_int(var_name, default):
+    """从环境变量获取整数值，若无效则使用默认值"""
+    try:
+        return int(os.environ.get(var_name, default))
+    except ValueError:
+        return default
+DATABASE_POOL_SIZE = get_env_int("DATABASE_POOL_SIZE", 10)
+DATABASE_POOL_MAX_OVERFLOW = get_env_int("DATABASE_POOL_MAX_OVERFLOW", 20)
+DATABASE_POOL_TIMEOUT = get_env_int("DATABASE_POOL_TIMEOUT", 30)
+DATABASE_POOL_RECYCLE = get_env_int("DATABASE_POOL_RECYCLE", 3600)
+RESET_CONFIG_ON_START = os.environ.get("RESET_CONFIG_ON_START", "False").lower() == "true"
+ENABLE_REALTIME_CHAT_SAVE = os.environ.get("ENABLE_REALTIME_CHAT_SAVE", "False").lower() == "true"
 
 if DATABASE_POOL_SIZE == "":
     DATABASE_POOL_SIZE = 0

@@ -22,7 +22,7 @@ def search_firecrawl(
         response = requests.post(
             firecrawl_search_url,
             headers={
-                "User-Agent": "Open WebUI (https://github.com/open-webui/open-webui) RAG Bot",
+                "User-Agent": "政务大模型 (https://github.com/open-webui/open-webui) RAG Bot",
                 "Authorization": f"Bearer {firecrawl_api_key}",
             },
             json={
